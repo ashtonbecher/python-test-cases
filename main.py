@@ -19,7 +19,7 @@ class LogIn(unittest.TestCase):
         except AssertionError:
             print('Incorrect Page Loaded')
 
-    def testLoginButtonPresent(self):
+    def test_login_button_present(self):
         # Verify the login button is present on the home page
         try:
             assert self.driver.find_element_by_link_text('Log in')
@@ -27,7 +27,7 @@ class LogIn(unittest.TestCase):
             print(e)
             raise
 
-    def testNavigateToLoginPage(self):
+    def test_navigate_to_login_page(self):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
@@ -38,7 +38,7 @@ class LogIn(unittest.TestCase):
             print(e)
             raise
 
-    def testValidLogin(self):
+    def test_valid_login(self):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
@@ -76,7 +76,7 @@ class LogIn(unittest.TestCase):
             print(e)
             raise
 
-    def testInvalidLogin(self):
+    def test_invalid_login(self):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
@@ -106,7 +106,7 @@ class LogIn(unittest.TestCase):
             print(e)
             raise
 
-    def testRememberMe(self):
+    def test_remember_me(self):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
