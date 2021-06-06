@@ -1,6 +1,5 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
@@ -52,12 +51,12 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys('ash.becher@gmail.com')
+        self.username_bar.send_keys()
 
         # Enter a valid password
         self.password_bar = self.driver.find_element_by_name('password')
         self.password_bar.clear()
-        self.password_bar.send_keys('mN?DyepGawb1')
+        self.password_bar.send_keys()
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
@@ -89,15 +88,12 @@ class LogIn(unittest.TestCase):
 
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
-        self.username_bar.click()
         self.username_bar.clear()
-        self.username_bar.send_keys('ash.becher@gmail.com')
+        self.username_bar.send_keys()
 
-        # Enter an invalid password
+        # Enter an invalid (no) password
         self.password_bar = self.driver.find_element_by_name('password')
-        self.password_bar.click()
         self.password_bar.clear()
-        self.password_bar.send_keys('A')
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
