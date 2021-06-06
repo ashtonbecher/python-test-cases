@@ -1,0 +1,3 @@
+Modules required:
+Selenium
+Chromedriver (for testing on Chrome)
