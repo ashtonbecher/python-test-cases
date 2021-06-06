@@ -33,7 +33,7 @@ class LogIn(unittest.TestCase):
         self.log_in.click()
         self.driver.implicitly_wait(10)
         try:
-            assert self.driver.title == 'Log In - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
             print(e)
             raise
@@ -43,7 +43,7 @@ class LogIn(unittest.TestCase):
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
         try:
-            assert self.driver.title == 'Log In - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
             print(e)
             raise
@@ -51,12 +51,12 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys()
+        self.username_bar.send_keys('')
 
         # Enter a valid password
         self.password_bar = self.driver.find_element_by_name('password')
         self.password_bar.clear()
-        self.password_bar.send_keys()
+        self.password_bar.send_keys('')
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
@@ -64,14 +64,14 @@ class LogIn(unittest.TestCase):
 
         # Verify the correct page loaded in a timely manner
         try:
-            self.page_title = WebDriverWait(self.driver, 10).until(EC.title_is('Home - Hudl'))
+            self.page_title = WebDriverWait(self.driver, 10).until(EC.url_matches('https://www.hudl.com/home'))
         except TimeoutError as e:
             print(e)
             raise
 
         # Verify the correct page loaded
         try:
-            assert self.driver.title == 'Home - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/home'
         except AssertionError as e:
             print(e)
             raise
@@ -81,7 +81,8 @@ class LogIn(unittest.TestCase):
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
         try:
-            assert self.driver.title == 'Log In - Hudl'
+            self.driver.implicitly_wait(10)
+            assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
             print(e)
             raise
@@ -89,7 +90,7 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys()
+        self.username_bar.send_keys('')
 
         # Enter an invalid (no) password
         self.password_bar = self.driver.find_element_by_name('password')
@@ -111,7 +112,7 @@ class LogIn(unittest.TestCase):
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
         try:
-            assert self.driver.title == 'Log In - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
             print(e)
             raise
@@ -119,12 +120,12 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys()
+        self.username_bar.send_keys('')
 
         # Enter a valid password
         self.password_bar = self.driver.find_element_by_name('password')
         self.password_bar.clear()
-        self.password_bar.send_keys()
+        self.password_bar.send_keys('')
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
@@ -132,14 +133,14 @@ class LogIn(unittest.TestCase):
 
         # Verify the correct page loaded in a timely manner
         try:
-            self.page_title = WebDriverWait(self.driver, 10).until(EC.title_is('Home - Hudl'))
+            self.page_title = WebDriverWait(self.driver, 10).until(EC.url_matches('https://www.hudl.com/home'))
         except TimeoutError as e:
             print(e)
             raise
 
         # Verify the correct page loaded
         try:
-            assert self.driver.title == 'Home - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/home'
         except AssertionError as e:
             print(e)
             raise
@@ -150,7 +151,7 @@ class LogIn(unittest.TestCase):
 
         # Verify home page is loaded
         try:
-            assert self.driver.title == 'Hudl: We Help Teams and Athletes Win'
+            assert self.driver.current_url == 'https://www.hudl.com/'
         except AssertionError:
             print('Incorrect Page Loaded')
 
@@ -158,7 +159,7 @@ class LogIn(unittest.TestCase):
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
         try:
-            assert self.driver.title == 'Log In - Hudl'
+            assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
             print(e)
             raise
@@ -166,7 +167,7 @@ class LogIn(unittest.TestCase):
         # Verify username is remembered
         self.username_bar = self.driver.find_element_by_name('username')
         try:
-            assert self.username_bar.get_attribute('value') == 'ash.becher@gmail.com'
+            assert self.username_bar.get_attribute('value') == ''
         except AssertionError as e:
             print(e)
             raise
