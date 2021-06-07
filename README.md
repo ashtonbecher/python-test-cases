@@ -3,7 +3,7 @@
 
 # Installation
  1. Install selenium using pip (see requirements.txt)
-     * open Powershell or CMD and type 
+     * open Powershell or CMD and type: 
 	*`pip install selenium`
  2. Ensure desired webdriver dependencies are installed to your PATH
      * IF YOU DO NOT HAVE AN EXISTING WEBDRIVER PATH: 
