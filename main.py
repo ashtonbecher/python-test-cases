@@ -14,10 +14,7 @@ class LogIn(unittest.TestCase):
 
         # Navigate to Hudl main website
         self.driver.get('https://www.hudl.com')
-        try:
-            assert self.driver.title == 'Hudl: We Help Teams and Athletes Win'
-        except AssertionError:
-            print('Incorrect Page Loaded')
+        self.driver.implicitly_wait(10)
 
     def test_login_button_present(self):
         # Verify the login button is present on the home page
@@ -42,6 +39,7 @@ class LogIn(unittest.TestCase):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
+        self.driver.implicitly_wait(10)
         try:
             assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
@@ -51,12 +49,12 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys('')
+        self.username_bar.send_keys()
 
         # Enter a valid password
         self.password_bar = self.driver.find_element_by_name('password')
         self.password_bar.clear()
-        self.password_bar.send_keys('')
+        self.password_bar.send_keys()
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
@@ -80,6 +78,7 @@ class LogIn(unittest.TestCase):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
+        self.driver.implicitly_wait(10)
         try:
             self.driver.implicitly_wait(10)
             assert self.driver.current_url == 'https://www.hudl.com/login'
@@ -90,7 +89,7 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys('')
+        self.username_bar.send_keys()
 
         # Enter an invalid (no) password
         self.password_bar = self.driver.find_element_by_name('password')
@@ -111,6 +110,7 @@ class LogIn(unittest.TestCase):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
+        self.driver.implicitly_wait(10)
         try:
             assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
@@ -120,12 +120,12 @@ class LogIn(unittest.TestCase):
         # Enter a valid username
         self.username_bar = self.driver.find_element_by_name('username')
         self.username_bar.clear()
-        self.username_bar.send_keys('')
+        self.username_bar.send_keys()
 
         # Enter a valid password
         self.password_bar = self.driver.find_element_by_name('password')
         self.password_bar.clear()
-        self.password_bar.send_keys('')
+        self.password_bar.send_keys()
 
         # Click the "Log In" button
         self.log_in_button = self.driver.find_element_by_id('logIn')
@@ -158,6 +158,7 @@ class LogIn(unittest.TestCase):
         # Click the "Log In" button from the home page
         self.log_in = self.driver.find_element_by_link_text('Log in')
         self.log_in.click()
+        self.driver.implicitly_wait(10)
         try:
             assert self.driver.current_url == 'https://www.hudl.com/login'
         except AssertionError as e:
